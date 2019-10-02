@@ -1,0 +1,55 @@
+apply plugin: 'com.android.application'
+apply plugin: 'jacoco-android'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+    maven { url 'https://jitpack.io' }
+}
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 25
+        versionName "1.7.4"
+        applicationId "org.dhis2.mobile"
+    }
+
+    buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
+    }
+
+    android {
+        lintOptions {
+            abortOnError false
+        }
+    }
+
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile 'com.android.support:recyclerview-v7:25.2.0'
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.android.support:design:25.2.0'
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'joda-time:joda-time:2.6'
+    compile 'io.nlopez.smartlocation:library:3.3.3'
+    compile 'com.github.AusseKalega:OLAPI:0.1.0'
+    compile "com.google.android.gms:play-services-location:9.2.0"
+
+
+
+    // / Java test dependencies
+    testCompile "junit:junit:4.12"
+    compile('com.crashlytics.sdk.android:crashlytics:2.9.1@aar') {
+        transitive = true;
+    }
+}

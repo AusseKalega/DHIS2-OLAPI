@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="org.dhis2.mobile">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--<uses-sdk tools:overrideLibrary="com.example.easywaylocation"/>-->
+    <!--<uses-sdk tools:replace="android:allowBackup" />-->
+    <application
+        android:allowBackup="false"
+        tools:replace="android:allowBackup"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme.Base">
+        <service
+            android:name=".WorkService"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.activities.LauncherActivity"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.activities.LoginActivity" />
+        <activity
+            android:name=".ui.activities.MenuActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activities.DataEntryActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="a5caa46009119f5e584e4964c30a922095b1075c"
+            />
+    </application>
+</manifest>
